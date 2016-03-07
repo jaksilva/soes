@@ -1,0 +1,1047 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+ 
+	<script type="text/javascript" src="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.js"></script>
+
+	<style type="text/css">
+
+	.datagrid table {
+	    border-collapse: collapse;
+	    text-align: left;
+	    width: 100%;
+	}
+	.datagrid {
+	    font: normal 12px/150% Arial, Helvetica, sans-serif;
+	    background: #fff;
+	    overflow: hidden;
+	    border: 4px solid #36752D;
+	    -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+	    border-radius: 3px;
+	}
+	.datagrid table td,
+	.datagrid table th {
+	    padding: 3px 1px;
+	}
+	.datagrid table thead th {
+	    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #36752D), color-stop(1, #275420));
+	    background: -moz-linear-gradient( center top, #36752D 5%, #275420 100%);
+	    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#36752D', endColorstr='#275420');
+	    background-color: #36752D;
+	    color: #FFFFFF;
+	    font-size: 15px;
+	    font-weight: bold;
+	    border-left: 1px solid #36752D;
+	}
+	.datagrid table thead th:first-child {
+	    border: none;
+	}
+	.datagrid table tbody td {
+	    color: #275420;
+	    border-left: 1px solid #C6FFC2;
+	    font-size: 13px;
+	    border-bottom: 1px solid #E1EEF4;
+	    font-weight: normal;
+	}
+	.datagrid table tbody .even td {
+	    background: #DFFFDE;
+	    color: #275420;
+	}
+	.datagrid table tbody td:first-child {
+	    border-left: none;
+	}
+	.datagrid table tbody tr:last-child td {
+	    border-bottom: none;
+	}
+	.datagrid table tfoot td div {
+	    border-top: 1px solid #36752D;
+	    background: #DFFFDE;
+	}
+	.datagrid table tfoot td {
+	    padding: 0;
+	    font-size: 12px
+	}
+	.datagrid table tfoot td div {
+	    padding: 2px;
+	}
+	.datagrid table tfoot td ul {
+	    margin: 0;
+	    padding: 0;
+	    list-style: none;
+	    text-align: right;
+	}
+	.datagrid table tfoot li {
+	    display: inline;
+	}
+	.datagrid table tfoot li a {
+	    text-decoration: none;
+	    display: inline-block;
+	    padding: 2px 8px;
+	    margin: 1px;
+	    color: #FFFFFF;
+	    border: 1px solid #36752D;
+	    -webkit-border-radius: 3px;
+	    -moz-border-radius: 3px;
+	    border-radius: 3px;
+	    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #36752D), color-stop(1, #275420));
+	    background: -moz-linear-gradient( center top, #36752D 5%, #275420 100%);
+	    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#36752D', endColorstr='#275420');
+	    background-color: #36752D;
+	}
+	.datagrid table tfoot ul.active,
+	.datagrid table tfoot ul a:hover {
+	    text-decoration: none;
+	    border-color: #275420;
+	    color: #FFFFFF;
+	    background: none;
+	    background-color: #36752D;
+	}
+	div.dhtmlx_window_active,
+	div.dhx_modal_cover_dv {
+	    position: fixed !important;
+	}
+
+	</style>
+
+	<script>
+	$(document).ready(function(){
+
+
+
+	var paises = new Array();
+	paises["España"] = {rep : 0, c : 0 , tag : ["Spain", "Madrid" , "Barcelona" ,"Lanzarote" ,"Galicia"] };
+	paises["Peru"] =  {rep : 0, c : 0 , tag : ["Per&#250;"] };
+	paises["Antigua_y_Barbuda"] = {rep : 0, c : 0 , tag : ["Antigua", "Barbuda"] };
+	paises["Argentina"] =  {rep : 0, c : 0 , tag : ["Lomas Del Mirador"] };
+	paises["Mexico"] =  {rep : 0, c : 0 , tag : ["MX", "D.F." ,"DF" , "M&#233;xico" , "Tlaxcala"] };
+	paises["Colombia"] =  {rep : 0, c : 0 , tag : ["Bogota", "Bogot&#225;"] };
+	paises["Bahamas"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Barbados"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Belice"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Bolivia"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Brasil"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Canada"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Chile"] =  {rep : 0, c : 0 , tag : [] };		
+	paises["Costa_Rica"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Cuba"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Dominica"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Ecuador"] =  {rep : 0, c : 0 , tag : [] };
+	paises["El_Salvador"] =  {rep : 0, c : 0 , tag : [] };		
+	paises["Granada"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Guatemala"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Guyana"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Haiti"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Honduras"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Jamaica"] =  {rep : 0, c : 0 , tag : [] };		
+	paises["Nicaragua"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Panama"] =  {rep : 0, c : 0 , tag : ["Panam&#225"] };
+	paises["Paraguay"] =  {rep : 0, c : 0 , tag : [] };		
+	paises["Republica_Dominicana"] =  {rep : 0, c : 0 , tag : [] };
+	paises["San_Cristobal_y_Nieves"] =  {rep : 0, c : 0 , tag : [] };
+	paises["San_Vicente_y_las_Granadinas"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Santa_Lucia"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Surinam"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Trinidad_y_Tobago"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Uruguay"] =  {rep : 0, c : 0 , tag : [] };
+	paises["Venezuela"] =  {rep : 0, c : 0 , tag : [] };
+
+    paises["Romania"] = {rep : 0, c : 0 , tag : [] };
+    paises["China"] = {rep : 0, c : 0 , tag : [] };
+    paises["Belgica"] = {rep : 0, c : 0 , tag : ["Belgium"] };
+    paises["United_Kingdom"] = {rep : 0, c : 0 , tag : ["Kingdom"] };
+    paises["Estados_Unidos"] =  {rep : 0, c : 0 , tag : ["USA","TX" ,"CO" ,"California"] };
+
+
+
+	paises["Void"] = {rep : 0, c : 0 , tag : [] };
+//alert("*");
+console.log(paises);
+jQuery.each(paises, function(index,value){
+	console.log(index + " " + value);
+});
+
+for (var key in paises){
+	console.log(paises[key]);
+	paises[key].tag.splice(0, 0, key);
+	for(var i =0 ; i < paises[key].tag.length ; i++){
+		console.log(paises[key].tag[i]);
+	}
+}
+
+var urlapi = 'http://api.stackexchange.com/2.2/users?pagesize=100&order=desc&sort=reputation&site=es.stackoverflow&filter=!bWXkd7eJ0mqDKk';
+
+var datax ={
+   "items":[
+      {
+         "reputation":4850,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":3760,
+         "location":"Lomas Del Mirador, Argentina"
+      },
+      {
+         "reputation":3056,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":2974,
+         "location":"Iasi, Romania"
+      },
+      {
+         "reputation":2516
+      },
+      {
+         "reputation":2355,
+         "location":"Argentina"
+      },
+      {
+         "reputation":2118,
+         "location":"Austin, TX"
+      },
+      {
+         "reputation":2092,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":1881,
+         "location":"MX"
+      },
+      {
+         "reputation":1500,
+         "location":"Palma de Mallorca, Spain"
+      },
+      {
+         "reputation":1412,
+         "location":"Bogota, Colombia"
+      },
+      {
+         "reputation":1378
+      },
+      {
+         "reputation":1295,
+         "location":"Barcelona"
+      },
+      {
+         "reputation":1150,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1126,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1119,
+         "location":"M&#233;xico, D.F."
+      },
+      {
+         "reputation":1117,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1113,
+         "location":"Guatemala"
+      },
+      {
+         "reputation":1060
+      },
+      {
+         "reputation":1058,
+         "location":"Guadalajara, Mexico"
+      },
+      {
+         "reputation":1057
+      },
+      {
+         "reputation":1051,
+         "location":"Madrid"
+      },
+      {
+         "reputation":1000,
+         "location":"Chile"
+      },
+      {
+         "reputation":963,
+         "location":"Zaragoza, Spain"
+      },
+      {
+         "reputation":949
+      },
+      {
+         "reputation":935,
+         "location":"Cartagena de Indias, Colombia"
+      },
+      {
+         "reputation":872
+      },
+      {
+         "reputation":865,
+         "location":"Qingdao, China"
+      },
+      {
+         "reputation":830,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":752,
+         "location":"Culiacan, Mexico"
+      },
+      {
+         "reputation":731,
+         "location":"Caracas, Venezuela"
+      },
+      {
+         "reputation":719,
+         "location":"vic"
+      },
+      {
+         "reputation":664,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":639,
+         "location":"Bogot&#225;"
+      },
+      {
+         "reputation":606,
+         "location":"Montevideo, Uruguay"
+      },
+      {
+         "reputation":604,
+         "location":"Spain"
+      },
+      {
+         "reputation":592,
+         "location":"Argentina"
+      },
+      {
+         "reputation":574
+      },
+      {
+         "reputation":552
+      },
+      {
+         "reputation":546,
+         "location":"Spain"
+      },
+      {
+         "reputation":546,
+         "location":"Zaragoza, Spain"
+      },
+      {
+         "reputation":539,
+         "location":"Bogota"
+      },
+      {
+         "reputation":516
+      },
+      {
+         "reputation":511,
+         "location":"Valencia (Spain)"
+      },
+      {
+         "reputation":497,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":497,
+         "location":"Lanzarote"
+      },
+      {
+         "reputation":491
+      },
+      {
+         "reputation":466,
+         "location":"Chile"
+      },
+      {
+         "reputation":462,
+         "location":"Colombia"
+      },
+      {
+         "reputation":449,
+         "location":"Santiago, Chile"
+      },
+      {
+         "reputation":431,
+         "location":"Barcelona, Spain"
+      },
+      {
+         "reputation":427,
+         "location":"Murcia, Spain"
+      },
+      {
+         "reputation":416
+      },
+      {
+         "reputation":400,
+         "location":"Monterrey, Mexico"
+      },
+      {
+         "reputation":396,
+         "location":"Argentina"
+      },
+      {
+         "reputation":395
+      },
+      {
+         "reputation":393
+      },
+      {
+         "reputation":388,
+         "location":"Mexico"
+      },
+      {
+         "reputation":388,
+         "location":"Guatemala"
+      },
+      {
+         "reputation":380,
+         "location":"M&#233;xico"
+      },
+      {
+         "reputation":375,
+         "location":"Cartagena, Spain"
+      },
+      {
+         "reputation":361
+      },
+      {
+         "reputation":353,
+         "location":"Boulder, CO"
+      },
+      {
+         "reputation":348,
+         "location":"internet"
+      },
+      {
+         "reputation":346,
+         "location":"Montevideo, Uruguay"
+      },
+      {
+         "reputation":343
+      },
+      {
+         "reputation":343,
+         "location":"Peru"
+      },
+      {
+         "reputation":340,
+         "location":"Monterrey, Mexico"
+      },
+      {
+         "reputation":336
+      },
+      {
+         "reputation":335,
+         "location":"Colombia"
+      },
+      {
+         "reputation":334
+      },
+      {
+         "reputation":330,
+         "location":"Panam&#225;, Rep&#250;blica de Panam&#225;"
+      },
+      {
+         "reputation":329,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":326,
+         "location":"La Plata, Argentina"
+      },
+      {
+         "reputation":325,
+         "location":"Santiago, Chile"
+      },
+      {
+         "reputation":323,
+         "location":"Spain"
+      },
+      {
+         "reputation":322,
+         "location":"Colombia"
+      },
+      {
+         "reputation":318,
+         "location":"Bogota, Colombia"
+      },
+      {
+         "reputation":313,
+         "location":"Per&#250;"
+      },
+      {
+         "reputation":312
+      },
+      {
+         "reputation":307,
+         "location":"Oviedo, Spain"
+      },
+      {
+         "reputation":306,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":300,
+         "location":"Tlaxcala"
+      },
+      {
+         "reputation":297
+      },
+      {
+         "reputation":297
+      },
+      {
+         "reputation":296
+      },
+      {
+         "reputation":295
+      },
+      {
+         "reputation":279,
+         "location":"Belgium"
+      },
+      {
+         "reputation":273,
+         "location":"Colombia"
+      },
+      {
+         "reputation":272,
+         "location":"Colombia"
+      },
+      {
+         "reputation":269,
+         "location":"Buenos Aires, Argentina"
+      },
+      {
+         "reputation":266
+      },
+      {
+         "reputation":263,
+         "location":"United Kingdom"
+      },
+      {
+         "reputation":262
+      },
+      {
+         "reputation":259,
+         "location":"America/Costa_Rica"
+      },
+      {
+         "reputation":249,
+         "location":"Colombia"
+      },
+      {
+         "reputation":246,
+         "location":"Galicia"
+      },
+      {
+         "reputation":227,
+         "location":"M&#233;rida, Venezuela"
+      },
+      {
+         "reputation":224,
+         "location":"Monterey, California"
+      },
+      {
+         "reputation":223,
+         "location":"Barcelona, Spain"
+      }
+   ],
+   "has_more":true,
+   "quota_max":300,
+   "quota_remaining":288
+}
+
+datax = {
+   "items":[
+      {
+         "reputation":4925,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":4120,
+         "location":"Lomas Del Mirador, Argentina"
+      },
+      {
+         "reputation":3449,
+         "location":"Iasi, Romania"
+      },
+      {
+         "reputation":3131,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":2654,
+         "location":"Argentina"
+      },
+      {
+         "reputation":2589
+      },
+      {
+         "reputation":2516,
+         "location":"Austin, TX"
+      },
+      {
+         "reputation":2350,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":1949,
+         "location":"MX"
+      },
+      {
+         "reputation":1500,
+         "location":"Palma de Mallorca, Spain"
+      },
+      {
+         "reputation":1432,
+         "location":"Bogota, Colombia"
+      },
+      {
+         "reputation":1378
+      },
+      {
+         "reputation":1372,
+         "location":"Barcelona"
+      },
+      {
+         "reputation":1210,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1169,
+         "location":"M&#233;xico, D.F."
+      },
+      {
+         "reputation":1126,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1113,
+         "location":"Guatemala"
+      },
+      {
+         "reputation":1113,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":1100
+      },
+      {
+         "reputation":1092,
+         "location":"Chile"
+      },
+      {
+         "reputation":1084
+      },
+      {
+         "reputation":1068,
+         "location":"Guadalajara, Mexico"
+      },
+      {
+         "reputation":1051,
+         "location":"Madrid"
+      },
+      {
+         "reputation":998,
+         "location":"Zaragoza, Spain"
+      },
+      {
+         "reputation":949
+      },
+      {
+         "reputation":945,
+         "location":"Cartagena de Indias, Colombia"
+      },
+      {
+         "reputation":880,
+         "location":"Qingdao, China"
+      },
+      {
+         "reputation":872
+      },
+      {
+         "reputation":840,
+         "location":"Lima, Peru"
+      },
+      {
+         "reputation":772,
+         "location":"Culiacan, Mexico"
+      },
+      {
+         "reputation":739,
+         "location":"Caracas, Venezuela"
+      },
+      {
+         "reputation":719,
+         "location":"vic"
+      },
+      {
+         "reputation":664,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":639,
+         "location":"Bogot&#225;"
+      },
+      {
+         "reputation":606,
+         "location":"Montevideo, Uruguay"
+      },
+      {
+         "reputation":604
+      },
+      {
+         "reputation":604,
+         "location":"Spain"
+      },
+      {
+         "reputation":592,
+         "location":"Argentina"
+      },
+      {
+         "reputation":557
+      },
+      {
+         "reputation":556,
+         "location":"Zaragoza, Spain"
+      },
+      {
+         "reputation":546,
+         "location":"Spain"
+      },
+      {
+         "reputation":537,
+         "location":"Bogota"
+      },
+      {
+         "reputation":537,
+         "location":"Valencia (Spain)"
+      },
+      {
+         "reputation":526
+      },
+      {
+         "reputation":519,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":507,
+         "location":"Lanzarote"
+      },
+      {
+         "reputation":506,
+         "location":"Argentina"
+      },
+      {
+         "reputation":501
+      },
+      {
+         "reputation":489,
+         "location":"Barcelona, Spain"
+      },
+      {
+         "reputation":482,
+         "location":"Colombia"
+      },
+      {
+         "reputation":451,
+         "location":"Chile"
+      },
+      {
+         "reputation":449,
+         "location":"Santiago, Chile"
+      },
+      {
+         "reputation":427,
+         "location":"Murcia, Spain"
+      },
+      {
+         "reputation":419,
+         "location":"Monterrey, Mexico"
+      },
+      {
+         "reputation":416
+      },
+      {
+         "reputation":405
+      },
+      {
+         "reputation":401,
+         "location":"Cartagena, Spain"
+      },
+      {
+         "reputation":401,
+         "location":"internet"
+      },
+      {
+         "reputation":398,
+         "location":"Mexico"
+      },
+      {
+         "reputation":393
+      },
+      {
+         "reputation":388,
+         "location":"Guatemala"
+      },
+      {
+         "reputation":380,
+         "location":"M&#233;xico"
+      },
+      {
+         "reputation":361
+      },
+      {
+         "reputation":353,
+         "location":"Boulder, CO"
+      },
+      {
+         "reputation":350,
+         "location":"Monterrey, Mexico"
+      },
+      {
+         "reputation":347,
+         "location":"Bogota, Colombia"
+      },
+      {
+         "reputation":346,
+         "location":"Montevideo, Uruguay"
+      },
+      {
+         "reputation":345,
+         "location":"Peru"
+      },
+      {
+         "reputation":343
+      },
+      {
+         "reputation":343
+      },
+      {
+         "reputation":340,
+         "location":"Panam&#225;, Rep&#250;blica de Panam&#225;"
+      },
+      {
+         "reputation":336,
+         "location":"La Plata, Argentina"
+      },
+      {
+         "reputation":335,
+         "location":"Colombia"
+      },
+      {
+         "reputation":334
+      },
+      {
+         "reputation":334
+      },
+      {
+         "reputation":329,
+         "location":"Mexico City, Mexico"
+      },
+      {
+         "reputation":325,
+         "location":"Santiago, Chile"
+      },
+      {
+         "reputation":323,
+         "location":"Spain"
+      },
+      {
+         "reputation":322,
+         "location":"Colombia"
+      },
+      {
+         "reputation":313,
+         "location":"Per&#250;"
+      },
+      {
+         "reputation":311
+      },
+      {
+         "reputation":307
+      },
+      {
+         "reputation":307,
+         "location":"Oviedo, Spain"
+      },
+      {
+         "reputation":306,
+         "location":"Madrid, Spain"
+      },
+      {
+         "reputation":300,
+         "location":"Tlaxcala"
+      },
+      {
+         "reputation":297
+      },
+      {
+         "reputation":295
+      },
+      {
+         "reputation":279,
+         "location":"Belgium"
+      },
+      {
+         "reputation":273,
+         "location":"United Kingdom"
+      },
+      {
+         "reputation":273,
+         "location":"Colombia"
+      },
+      {
+         "reputation":272,
+         "location":"Colombia"
+      },
+      {
+         "reputation":269,
+         "location":"Buenos Aires, Argentina"
+      },
+      {
+         "reputation":266
+      },
+      {
+         "reputation":264
+      },
+      {
+         "reputation":259,
+         "location":"America/Costa_Rica"
+      },
+      {
+         "reputation":256,
+         "location":"Galicia"
+      },
+      {
+         "reputation":249,
+         "location":"Colombia"
+      },
+      {
+         "reputation":227,
+         "location":"M&#233;rida, Venezuela"
+      },
+      {
+         "reputation":224,
+         "location":"Bogot&#225;, Colombia"
+      },
+      {
+         "reputation":224,
+         "location":"Monterey, California"
+      }
+   ],
+   "has_more":true,
+   "quota_max":300,
+   "quota_remaining":294
+};
+//var data= {};
+
+$.get( urlapi, function( data ) {
+  
+  console.log("DATA-API");
+  console.log(data);
+
+  jQuery.each( data.items, function(i, vuser){
+	//console.log(vuser);
+	contar(vuser);
+  });
+
+  for (var key in paises){
+	$("#content").append("<tr><td>"+ key+ "</td><td>" +paises[key].rep + "</td><td>" + paises[key].c+"</td><td>"+  (paises[key].c > 0 ? paises[key].rep /paises[key].c : 0) +"</td></tr>");
+
+  }
+
+  $('#table').DataTable();
+});
+
+//console.log(data.items);
+
+/*
+jQuery.each( data.items, function(i, vuser){
+	//console.log(vuser);
+	contar(vuser);
+});
+//console.log("-------------------------");
+//console.log(paises);
+//console.log("_________________________");
+
+for (var key in paises){
+	$("#content").append("<tr><td>"+ key+ "</td><td>" +paises[key].rep + "</td><td>" + paises[key].c+"</td><td>"+  (paises[key].c > 0 ? paises[key].rep /paises[key].c : 0) +"</td></tr>");
+
+}
+*/
+
+
+
+
+	function contar(usuario){
+		if(usuario.location !== undefined){
+		  usuario.location = quitaacentos(usuario.location);
+		  //console.log(usuario.location)
+	  }
+		for (var key in paises){      
+			for(var i =0 ; i < paises[key].tag.length ; i++){
+				//console.log("v")
+				//console.log(usuario);
+				//console.log(paises[key].tag[i]);
+				
+				if(usuario.location === undefined){
+					paises["Void"].rep += usuario.reputation;
+					paises["Void"].c += 1;
+					
+					return 0;
+
+				}          
+				else if(usuario.location.indexOf(paises[key].tag[i].toLowerCase()) > -1){
+					paises[key].rep += usuario.reputation;
+					paises[key].c += 1;					
+					return 0;
+
+				}					
+			}
+		}
+	}
+
+});
+
+
+function quitaacentos(s) {
+var r=s.toLowerCase();
+            r = r.replace(new RegExp(/\s/g),"");
+            r = r.replace(new RegExp(/[àáâãäå]/g),"a");
+            r = r.replace(new RegExp(/[èéêë]/g),"e");
+            r = r.replace(new RegExp(/[ìíîï]/g),"i");
+            r = r.replace(new RegExp(/ñ/g),"n");                
+            r = r.replace(new RegExp(/[òóôõö]/g),"o");
+            r = r.replace(new RegExp(/[ùúûü]/g),"u");
+            
+ return r;
+}
+ 
+
+</script>
+
+</head>
+<body>
+	<div class="datagrid">
+		<table id="table">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Rep</th>
+					<th>Cuenta</th>
+					<th>Promedio</th>
+				</tr>
+			</thead>
+			<tbody id="content"></tbody>
+		</table>
+	</div>
+	<body>
+		</html>
